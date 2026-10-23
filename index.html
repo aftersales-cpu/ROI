@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><script src="js/utm.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IceRebus · Sales System</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>/* test2: nav-social */
+.icerebus-logo-link { width: auto !important; height: 48px !important; display: flex; align-items: center; flex-shrink: 0; }
+.image-7 { width: auto !important; height: 36px !important; max-height: 36px !important; }
+.nav-social{display:flex;align-items:center;gap:12px;margin-left:12px;margin-right:0;}
+.nav-social a{color:#1a1a1a;display:flex;align-items:center;transition:color .15s ease,transform .15s ease;}
+.nav-social a:hover{color:#17c9fa;transform:translateY(-1px);}
+.hero-media-desktop{display:block!important;}
+.hero-media-mobile{display:none!important;}
+@media(max-width:767px){.hero-media-desktop{display:none!important;}.hero-media-mobile{display:block!important;}}
+.section-hero .container-hero{padding-left:9vw!important;padding-right:9vw!important;grid-column-gap:30px!important;column-gap:30px!important;}
+.section-hero .div-block-19{flex:0 0 50%!important;width:auto!important;max-width:50%!important;}
+.section-hero .image-14{width:100%!important;max-width:1100px!important;height:auto!important;}
+.section-hero .hero-text{flex:0 0 50%!important;max-width:50%!important;}
+.hero-media-desktop{width:100%!important;max-width:1100px!important;height:auto!important;}
+/* test2: fix nav overflow + new logo sizing */
+.navbar-3{margin-left:15px!important;margin-right:15px!important;}
+.icerebus-logo-link{height:32px!important;}
+.icerebus-logo-link .image-7{height:32px!important;width:auto!important;max-height:32px!important;margin-top:0!important;margin-bottom:0!important;transform:translateY(8px)!important;}
+.nav-social{gap:6px!important;margin-left:0!important;}
+.navbar-3{height:86px!important;display:flex!important;align-items:center!important;}
+.nav-social svg{width:22px!important;height:22px!important;}
+.nav-menu-4{gap:0!important;}
+.nav-menu-4 .nav-link-2{flex:0 0 auto!important;width:auto!important;white-space:nowrap!important;padding:8px 8px!important;}
+.link-block-2.button-why{padding-left:14px!important;padding-right:14px!important;min-width:0!important;padding-top:10px!important;padding-bottom:10px!important;margin-top:8px!important;margin-bottom:8px!important;}
+
+
+@media(max-width:991px){.nav-social{margin-right:0;margin-bottom:14px;justify-content:center;gap:22px;}}.containter-header{max-width:none!important;width:100%!important;margin-left:0!important;margin-right:0!important;justify-content:flex-start!important;padding-right:16px!important;box-sizing:border-box!important;}.nav-menu-4{width:auto!important;flex:1 1 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:space-around!important;}</style>
+<style>
+.logo-carousel-wrapper{width:100%;overflow:hidden;padding:28px 0;}
+.logo-carousel-track{display:flex;align-items:center;width:max-content;animation:logo-carousel-scroll 22s linear infinite;}
+.logo-carousel-track img{height:42px;width:auto;margin:0 45px;object-fit:contain;flex-shrink:0;}
+@keyframes logo-carousel-scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+</style>
+
+<style>/* test2: social-next-to-logo */
+.logo-social-wrap{display:flex!important;flex-direction:row!important;align-items:center!important;gap:18px!important;width:auto!important;max-width:none!important;flex:0 0 auto!important;flex-shrink:0!important;overflow:visible!important;margin-right:28px!important;}
+.logo-social-wrap .icerebus-logo-link{display:flex!important;align-items:center!important;height:36px!important;margin:0!important;flex-shrink:0!important;}
+.logo-social-wrap .icerebus-logo-link .image-7{height:36px!important;max-height:36px!important;width:auto!important;margin:0!important;transform:translateY(-7px)!important;display:block!important;vertical-align:middle!important;}
+.logo-social-wrap .nav-social{display:flex!important;flex-direction:row!important;align-items:center!important;gap:10px!important;margin:0!important;flex-shrink:0!important;position:static!important;}
+.logo-social-wrap .nav-social svg{width:22px!important;height:22px!important;}
+.nav-menu-4{margin-left:0!important;}
+</style>
+<style>/* test2: mobile-dropdown-nav */
+@media(max-width:991px){
+  .navbar-3 .div-block-37{width:100%!important;display:flex!important;justify-content:space-between!important;align-items:center!important;}
+  .navbar-3 .div-block-37 > .logo-social-wrap{margin-right:0!important;flex:0 0 auto!important;gap:0!important;}
+  .navbar-3 .div-block-37 > .logo-social-wrap .nav-social{display:none!important;}
+  .navbar-3 .div-block-37 > .nav-menu-4{display:none!important;}
+  .navbar-3 .menu-button-3{display:flex!important;position:relative!important;left:auto!important;right:auto!important;align-items:center;justify-content:center;margin:0!important;width:44px;height:44px;}
+  .w-nav-overlay{height:auto!important;min-height:0!important;top:100%!important;overflow:visible!important;position:absolute!important;left:0!important;right:0!important;width:100%!important;z-index:1000!important;background:transparent!important;}
+  .w-nav-overlay .nav-menu-4{display:flex!important;flex-direction:column!important;align-items:stretch!important;background:#ffffff!important;width:100%!important;max-width:none!important;padding:8px 22px 22px!important;margin:0!important;gap:0!important;box-shadow:0 14px 28px rgba(0,0,0,.15)!important;transform:none!important;border-top:1px solid #eee!important;border-radius:0 0 14px 14px!important;}
+  .w-nav-overlay .nav-menu-4 .nav-link-2{width:100%!important;padding:14px 0!important;font-size:18px!important;text-align:left!important;border-bottom:1px solid #f0f0f0!important;color:#1a1a1a!important;transform:none!important;}
+  .w-nav-overlay .nav-menu-4 .link-block-2{margin:18px 0 6px!important;width:100%!important;justify-content:center!important;}
+  .mobile-social-row{display:flex!important;flex-direction:row!important;gap:22px!important;justify-content:flex-start!important;align-items:center!important;padding:16px 0 4px!important;}
+  .mobile-social-row a{display:flex!important;color:#1a1a1a!important;}
+  .mobile-social-row svg{width:26px!important;height:26px!important;}
+}
+</style>
+<script>/* test2: mobile-social-clone */
+(function(){function addSocial(){var menu=document.querySelector(".nav-menu-4");var social=document.querySelector(".logo-social-wrap .nav-social");if(menu&&social&&!menu.querySelector(".mobile-social-row")){var clone=social.cloneNode(true);clone.classList.remove("nav-social");clone.classList.add("mobile-social-row");var gs=menu.querySelector(".link-block-2");if(gs){menu.insertBefore(clone,gs);}else{menu.appendChild(clone);}}}if(document.readyState!=="loading"){addSocial();}else{document.addEventListener("DOMContentLoaded",addSocial);}})();
+</script>
+
+<style>/* test2: logo-aspect-fix */
+.icerebus-logo-link .image-7{width:auto!important;max-width:none!important;object-fit:contain!important;}
+</style>
+
+<style>/* test2: mobile-nav-opaque */
+@media(max-width:991px){
+  .navbar-3{margin-left:0!important;margin-right:0!important;background-color:#ffffff!important;padding-left:0!important;padding-right:0!important;}
+  .navbar-3 .div-block-37{background-color:#ffffff!important;width:100%!important;padding-left:20px!important;padding-right:20px!important;padding-top:14px!important;padding-bottom:14px!important;box-sizing:border-box!important;border-radius:16px!important;box-shadow:0 4px 14px rgba(0,0,0,.08)!important;}
+  .navbar-3 .w-nav-overlay{background:#ffffff!important;}
+  .navbar-3 .w-nav-overlay .nav-menu-4.w-nav-menu{background-color:#ffffff!important;background:#ffffff!important;}
+}
+</style>
+
+<style>/* test2: mobile-logo-notransform */
+@media(max-width:991px){
+  body .navbar-3 .logo-social-wrap .icerebus-logo-link .image-7{transform:none!important;}
+  .navbar-3 .div-block-37 .logo-social-wrap{align-items:center!important;}
+}
+</style>
+
+<style>
+/* test2: hide-social-clone-desktop */
+@media(min-width:992px){ .mobile-social-row{ display:none !important; } }
+</style>
+<!-- ===== Cookie consent (GDPR) – mora biti PRIJE svih tagova koji traže privolu ===== -->
+  <script src="/js/consent.js"></script>
+  <!-- Google Ads tag (gtag.js) – blokiran do privole za "marketing"; consent.js postavlja Consent Mode v2 default = denied -->
+  <script type="text/plain" data-consent="marketing" data-src="https://www.googletagmanager.com/gtag/js?id=AW-11061331087"></script>
+  <script type="text/plain" data-consent="marketing">
+    gtag('js', new Date());
+    gtag('config', 'AW-11061331087');
+  </script>
+  <!-- Meta Pixel – blokiran do privole za "marketing" -->
+  <script type="text/plain" data-consent="marketing">
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('set', 'autoConfig', false, '459247156120519');
+    fbq('init', '459247156120519');
+    fbq('track', 'PageView');
+  </script>
+  <!-- ===== /Cookie consent ===== -->
+</head>
+<body>
+<div id="root"></div>
+  <script type="text/babel">
+const { useState } = React;
+
+/* ── LIGHT THEME TOKENS ── */
+const ACCENT  = "#00A8E0";
+const ACCENT2 = "#00C49A";
+const WARN    = "#E67E22";
+const DANGER  = "#C0392B";
+const BG      = "#F0F4F7";
+const CARD    = "#FFFFFF";
+const BORDER  = "#D6E2EC";
+const TEXT    = "#0F1F2E";
+const MUTED   = "#7A9AB2";
+
+const LOGO_B64 = "/images/Logo_png.png";
+
+const css = `
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: ${BG}; color: ${TEXT}; font-family: 'Barlow', sans-serif; min-height:100vh; }
+  #root { display:flex; justify-content:center; align-items:flex-start; }
+  .app { min-height:100vh; display:flex; flex-direction:column; width:100%; max-width:1200px; margin:0 auto; box-shadow:0 0 40px rgba(0,0,0,0.08); background:${BG}; }
+
+  /* ── HEADER ── */
+  .hdr {
+    background: #fff;
+    border-bottom: 1px solid ${BORDER};
+    padding: 20px 40px 16px;
+    position: relative; overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .hdr::before {
+    content:''; position:absolute; top:-40px; right:-30px;
+    width:200px; height:200px;
+    background:radial-gradient(circle,rgba(0,168,224,0.06) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .hdr-tag { font-family:'Barlow Condensed',sans-serif; font-size:18px; letter-spacing:3px; color:${ACCENT}; text-transform:uppercase; margin-bottom:8px; }
+  .hdr-logo { height:56px; width:auto; display:block; margin-bottom:6px; }
+  .hdr-sub { font-size:21px; color:${MUTED}; font-weight:300; }
+
+  /* ── TABS ── */
+  .tabs {
+    display:flex; padding:0 40px; justify-content:center;
+    background:#fff; border-bottom:2px solid ${BORDER}; width:100%; box-sizing:border-box;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab {
+    padding:14px 26px; font-family:'Barlow Condensed',sans-serif;
+    font-size:23px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px;
+    color:${MUTED}; transition:all 0.2s; white-space:nowrap; flex-shrink:0;
+  }
+  .tab.on { color:${ACCENT}; border-bottom-color:${ACCENT}; }
+  .tab:hover:not(.on) { color:${TEXT}; }
+
+  /* ── LAYOUT ── */
+  .content { padding:28px 40px; width:100%; box-sizing:border-box; }
+  .sec {
+    font-family:'Barlow Condensed',sans-serif; font-size:21px; letter-spacing:3px;
+    text-transform:uppercase; color:${ACCENT}; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .sec::after { content:''; flex:1; height:1px; background:${BORDER}; }
+  .card { background:${CARD}; border:1px solid ${BORDER}; border-radius:6px; padding:20px; margin-bottom:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; }
+
+  /* ── CRITERIA ── */
+  .cri { display:flex; align-items:flex-start; gap:12px; padding:11px 0; border-bottom:1px solid ${BORDER}; }
+  .cri:last-child { border-bottom:none; }
+  .cri-n { font-family:'Barlow Condensed',sans-serif; font-size:31px; font-weight:900; color:${ACCENT}; opacity:0.35; min-width:26px; }
+  .cri-lbl { font-weight:600; font-size:22px; margin-bottom:2px; color:${TEXT}; }
+  .cri-dsc { font-size:20px; color:${MUTED}; line-height:1.5; }
+
+  /* ── BADGES ── */
+  .bdg { display:inline-block; padding:2px 9px; border-radius:3px; font-size:18px; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+  .bdg-r { background:rgba(0,168,224,0.1); color:${ACCENT}; border:1px solid rgba(0,168,224,0.25); }
+  .bdg-d { background:rgba(192,57,43,0.08); color:${DANGER}; border:1px solid rgba(192,57,43,0.2); }
+  .bdg-b { background:rgba(0,196,154,0.1); color:${ACCENT2}; border:1px solid rgba(0,196,154,0.25); }
+
+  /* ── SCORE ── */
+  .score-wrap {
+    display:flex; align-items:center; gap:20px; padding:18px 22px;
+    background:linear-gradient(135deg,rgba(0,168,224,0.05),rgba(0,196,154,0.04));
+    border:1px solid rgba(0,168,224,0.2); border-radius:6px; margin-bottom:22px;
+  }
+  .score-n { font-family:'Barlow Condensed',sans-serif; font-size:73px; font-weight:900; line-height:1; color:${ACCENT}; }
+  .score-lbl { font-size:20px; color:${MUTED}; letter-spacing:2px; text-transform:uppercase; }
+  .score-status { font-family:'Barlow Condensed',sans-serif; font-size:31px; font-weight:700; }
+  .bar-wrap { margin-top:8px; height:5px; background:${BORDER}; border-radius:3px; overflow:hidden; }
+  .bar { height:5px; border-radius:3px; background:linear-gradient(90deg,${ACCENT},${ACCENT2}); transition:width 0.5s ease; }
+
+  /* ── CHECKBOXES ── */
+  .chk { display:flex; align-items:center; gap:10px; padding:9px 6px; cursor:pointer; user-select:none; border-radius:3px; transition:background 0.1s; }
+  .chk:hover { background:rgba(0,168,224,0.04); }
+  .chk-box { width:18px; height:18px; border:2px solid ${BORDER}; border-radius:3px; display:flex; align-items:center; justify-content:center; transition:all 0.15s; flex-shrink:0; }
+  .chk-box.on { background:${ACCENT}; border-color:${ACCENT}; }
+  .chk-box svg { display:none; }
+  .chk-box.on svg { display:block; }
+  .chk-lbl { font-size:22px; }
+  .chk-lbl.on { color:${TEXT}; }
+  .chk-lbl:not(.on) { color:${MUTED}; }
+
+  /* ── LOST BTN ── */
+  .lost-btn { padding:7px 14px; border-radius:4px; font-family:'Barlow Condensed',sans-serif; font-size:21px; font-weight:700; letter-spacing:1px; text-transform:uppercase; cursor:pointer; border:1px solid ${BORDER}; background:transparent; color:${MUTED}; transition:all 0.2s; }
+  .lost-btn.sel { background:rgba(192,57,43,0.08); border-color:rgba(192,57,43,0.3); color:${DANGER}; }
+
+  /* ── ROI INPUTS ── */
+  .input-label { font-size:18px; letter-spacing:2px; text-transform:uppercase; color:${MUTED}; margin-bottom:8px; display:block; }
+  .num-input { background:#F7FAFC; border:1px solid ${BORDER}; border-radius:4px; padding:10px 14px; color:${TEXT}; font-family:'Barlow Condensed',sans-serif; font-size:34px; font-weight:700; width:100%; outline:none; transition:border-color 0.2s; }
+  .num-input:focus { border-color:${ACCENT}; }
+
+  /* ── SLIDERS ── */
+  .slider-row { display:flex; align-items:center; gap:14px; }
+  .sli { flex:1; -webkit-appearance:none; height:4px; border-radius:2px; outline:none; cursor:pointer; min-width:0; }
+  .sli::-webkit-slider-thumb { -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:${ACCENT}; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,168,224,0.3); cursor:pointer; }
+  .sli-val { font-family:'Barlow Condensed',sans-serif; font-size:39px; font-weight:900; color:${ACCENT}; min-width:56px; text-align:right; }
+  .sli-lbl { font-size:20px; color:${MUTED}; margin-top:5px; }
+
+  /* ── SEASONAL BOX ── */
+  .season-box { background:#F7FAFC; border:1px solid ${BORDER}; border-radius:6px; padding:14px 18px; }
+  .season-title { font-family:'Barlow Condensed',sans-serif; font-size:20px; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+
+  /* ── PAYBACK BAR ── */
+  .payback-bar {
+    display:flex; gap:20px; padding:18px 22px;
+    background:rgba(0,196,154,0.05); border:1px solid rgba(0,196,154,0.2);
+    border-radius:6px; margin-bottom:22px; flex-wrap:wrap; align-items:center;
+  }
+  .pb-big { font-family:'Barlow Condensed',sans-serif; font-size:44px; font-weight:900; color:${ACCENT2}; line-height:1; }
+  .pb-sub { font-size:18px; color:${MUTED}; text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+  .pb-div { width:1px; height:40px; background:${BORDER}; }
+  .pb-note { font-size:20px; color:${MUTED}; line-height:1.6; margin-left:auto; max-width:210px; }
+
+  /* ── SCENARIO CARDS ── */
+  .sc-card { border:1px solid ${BORDER}; border-radius:6px; overflow:hidden; background:${CARD}; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+  .sc-hdr { padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  .sc-pct { font-family:'Barlow Condensed',sans-serif; font-size:49px; font-weight:900; }
+  .sc-tag { font-family:'Barlow Condensed',sans-serif; font-size:18px; letter-spacing:2px; text-transform:uppercase; color:${MUTED}; }
+  .sc-body { padding:14px 18px; border-top:1px solid ${BORDER}; }
+  .mrow { display:flex; justify-content:space-between; align-items:baseline; padding:6px 0; border-bottom:1px solid rgba(214,226,236,0.8); }
+  .mrow:last-child { border-bottom:none; }
+  .mkey { font-size:18px; color:${MUTED}; text-transform:uppercase; letter-spacing:1px; }
+  .mval { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:700; color:${TEXT}; }
+  .mval.hi { color:${ACCENT2}; }
+  .mval.dim { color:${MUTED}; font-size:25px; }
+  .sc-low { border-color:${BORDER}; }
+  .sc-low .sc-hdr { background:#F7FAFC; }
+  .sc-low .sc-pct { color:${MUTED}; }
+  .sc-med { border-color:rgba(0,168,224,0.3); }
+  .sc-med .sc-hdr { background:rgba(0,168,224,0.05); }
+  .sc-med .sc-pct { color:${ACCENT}; }
+  .sc-hi { border-color:rgba(0,196,154,0.35); }
+  .sc-hi .sc-hdr { background:rgba(0,196,154,0.05); }
+  .sc-hi .sc-pct { color:${ACCENT2}; }
+
+  /* ── NOTE ── */
+  .note { padding:12px 16px; background:rgba(0,168,224,0.04); border-left:3px solid ${ACCENT}; font-size:20px; color:${MUTED}; line-height:1.7; margin-top:20px; border-radius:0 4px 4px 0; }
+
+  /* ── PIPELINE ── */
+  .pipe-step { display:flex; gap:14px; align-items:flex-start; padding:14px 0; position:relative; }
+  .pipe-line { position:absolute; left:15px; top:42px; bottom:-14px; width:2px; background:${BORDER}; }
+  .dot { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-size:23px; font-weight:900; flex-shrink:0; position:relative; z-index:1; }
+  .dot-a { background:${ACCENT}; color:#fff; }
+  .dot-b { background:rgba(0,196,154,0.12); color:${ACCENT2}; border:1px solid rgba(0,196,154,0.3); }
+  .dot-c { background:rgba(0,168,224,0.1); color:${ACCENT}; border:1px solid rgba(0,168,224,0.25); }
+  .step-title { font-weight:600; font-size:22px; margin-bottom:3px; color:${TEXT}; }
+  .step-desc { font-size:20px; color:${MUTED}; line-height:1.6; }
+
+  /* ── OBJECTIONS ── */
+  .obj-card { background:${CARD}; border:1px solid ${BORDER}; border-radius:6px; padding:14px 16px; cursor:pointer; transition:border-color 0.2s; margin-bottom:8px; box-shadow:0 1px 3px rgba(0,0,0,0.03); }
+  .obj-card:hover, .obj-card.open { border-color:rgba(0,168,224,0.35); background:rgba(0,168,224,0.02); }
+  .obj-q { font-size:22px; font-weight:600; color:${TEXT}; }
+  .obj-a { font-size:20px; color:${MUTED}; line-height:1.7; margin-top:10px; border-top:1px solid ${BORDER}; padding-top:10px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hdr { padding:16px 24px 14px; }
+    .hdr-logo { height:28px; }
+    .tabs { padding:0 16px; }
+    .tab { padding:12px 16px; font-size:22px; letter-spacing:1px; }
+    .content { padding:20px 24px; }
+    .g3 { grid-template-columns:1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .hdr { padding:13px 16px 11px; }
+    .hdr-logo { height:24px; }
+    .hdr-sub { font-size:20px; }
+    .tabs { padding:0 6px; }
+    .tab { padding:11px 12px; font-size:21px; letter-spacing:0.5px; }
+    .content { padding:14px 14px; }
+    .g2, .g3 { grid-template-columns:1fr; }
+    .score-wrap { flex-direction:column; align-items:flex-start; gap:10px; padding:14px 16px; }
+    .score-n { font-size:62px; }
+    .payback-bar { flex-direction:column; align-items:flex-start; gap:10px; }
+    .pb-div { display:none; }
+    .pb-note { margin-left:0; max-width:100%; }
+    .card { padding:14px; }
+    .sec { font-size:18px; letter-spacing:2px; margin-bottom:12px; }
+    .note { font-size:20px; }
+    .sli-val { font-size:31px; min-width:46px; }
+    .sc-pct { font-size:42px; }
+    .lost-btn { font-size:20px; padding:6px 10px; }
+  }
+
+  @media (max-width: 380px) {
+    .hdr-logo { height:20px; }
+    .tab { font-size:20px; padding:10px 9px; }
+    .score-n { font-size:55px; }
+  }
+`;
+
+const checks = [
+  { id:"interest",    label:"Confirmed interest in ice vending",                                         type:"req" },
+  { id:"budget",      label:"Has defined budget or financing plan",                                      type:"req" },
+  { id:"stage",       label:"Stage identified (research / financing / ready)",                           type:"req" },
+  { id:"message",     label:"Description submitted (min. 10 words)",                                    type:"req" },
+  { id:"location",    label:"Has confirmed or potential location",                                       type:"req" },
+  { id:"verified",    label:"Sales team verified all form data by direct contact",                       type:"req" },
+  { id:"decision",    label:"Confirmed as decision maker (not just researching for someone else)",       type:"req" },
+  { id:"timeline",    label:"Clear purchase timeline (within 3 months)",                                type:"bonus" },
+  { id:"multi",       label:"Interest in multiple units",                                               type:"bonus" },
+  { id:"competition", label:"Has asked about competing solutions — knows the market",                   type:"bonus" },
+];
+
+const disqualifiers = [
+  "No location and no plan to find one",
+  "No budget and no access to financing",
+  "Cannot be contacted to verify form details",
+  "Not the decision maker and decision maker is unreachable",
+];
+
+const lostReasons = ["Budget fell through","No suitable location","Chose competitor","Timeline pushed back","Not decision maker","Unresponsive / ghosted","Price too high","Other"];
+
+const objections = [
+  { q:'"Will it really run consistently for 365 days?"',
+    a:"It doesn't need to. Even at 200 operational days the return is strong — use the ROI calculator and drag the slider to their number. The machine handles -10°C to +45°C and needs minimal maintenance. Let the math answer the objection." },
+  { q:'"What if the location doesn\'t get enough foot traffic?"',
+    a:"Ask about their location first — parking lot, petrol station, market, car wash? Then anchor to 30% capacity as the baseline. Most locations hit 30% easily. The pitch: even the worst-case scenario works." },
+  { q:'"What happens if it breaks down?"',
+    a:"Address maintenance coverage directly: response time, spare parts, service contract. If downtime is resolved within 24–48h the risk is a day or two of lost sales — not a catastrophe. Build this into operational days." },
+  { q:'"The 20% location cut feels high."',
+    a:"Reframe it: the location owner covers water, electricity, and rent — all included. Compared to leasing a space and paying utilities separately, 20% all-in is typically cheaper and far simpler to manage." },
+  { q:'"What if it\'s too hot in summer and capacity drops?"',
+    a:"Use the seasonal mix sliders. At 30°C+ capacity is 300 kg/day — still 100 dispenses daily. Summer is peak demand for ice, so sell-through typically rises as capacity slightly drops. Net effect is often neutral or positive." },
+  { q:'"I need to think about it / talk to my partner."',
+    a:"This is the decision-maker gap. Ask directly: 'Is there someone else involved in this decision?' If yes, invite both to a follow-up call and re-run the ROI pitch together. Schedule the next step before ending the call — don't let it go dark." },
+];
+
+function calcROI(warmMonths, hotMonths, opDays, machinePrice) {
+  const warmCap = 450, hotCap = 300, price = 3, own = 0.8;
+  const total = warmMonths + hotMonths;
+  const warmShare = total > 0 ? warmMonths / total : 0.6;
+  const hotShare  = total > 0 ? hotMonths  / total : 0.4;
+  const blended   = Math.round(warmCap * warmShare + hotCap * hotShare);
+  const maxD      = blended / 3;
+  return [30, 50, 70].map(pct => {
+    const dispenses   = Math.round(maxD * (pct / 100));
+    const daily       = dispenses * price;
+    const annual      = daily * opDays;
+    const ownerAnnual = Math.round(annual * own);
+    const locAnnual   = Math.round(annual * (1 - own));
+    const ownerMo     = Math.round(ownerAnnual / 12);
+    const paybackMo   = machinePrice > 0 && ownerMo > 0 ? Math.ceil(machinePrice / ownerMo) : null;
+    return { pct, dispenses, daily, annual: Math.round(annual), ownerAnnual, locAnnual, ownerMo, paybackMo, blended };
+  });
+}
+
+const Tick = () => (
+  <svg width="11" height="9" viewBox="0 0 12 10" fill="none">
+    <path d="M1 5L4.5 8.5L11 1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+function App() {
+  const [tab, setTab]         = useState("qualify");
+  const [checked, setChecked] = useState({});
+  const [lostReason, setLost] = useState(null);
+  const [openObj, setOpenObj] = useState(null);
+  const [machinePrice, setMP] = useState(15000);
+  const [opDays, setOpDays]   = useState(300);
+  const [warmMonths, setWarm] = useState(7);
+  const [hotMonths,  setHot]  = useState(5);
+
+  const toggle = id => setChecked(p => ({ ...p, [id]: !p[id] }));
+
+  const req   = checks.filter(c => c.type === "req");
+  const bonus = checks.filter(c => c.type === "bonus");
+  const rC    = req.filter(c => checked[c.id]).length;
+  const bC    = bonus.filter(c => checked[c.id]).length;
+  const score = Math.round((rC / req.length) * 80 + (bC / bonus.length) * 20);
+  const status =
+    score === 100 ? { label:"QUALIFIED LEAD",  color:ACCENT2 } :
+    score >= 70   ? { label:"WARM LEAD",        color:ACCENT  } :
+    score >= 40   ? { label:"NEEDS FOLLOW-UP",  color:WARN    } :
+                    { label:"NOT QUALIFIED",     color:DANGER  };
+
+  const scenarios = calcROI(warmMonths, hotMonths, opDays, machinePrice);
+  const mid       = scenarios[1];
+  const opPct     = ((opDays - 100) / 265) * 100;
+
+  return (
+    <>
+      <style>{css}</style>
+      <div className="app">
+
+        {/* HEADER */}
+        <div className="hdr">
+          <div className="hdr-tag">Sales Intelligence Tool</div>
+          <img src={LOGO_B64} alt="IceRebus" className="hdr-logo" />
+          <div className="hdr-sub">Lead Qualification · ROI Calculator · Sales Pipeline · v2.0</div>
+        </div>
+
+        {/* TABS */}
+        <div className="tabs">
+          {[["qualify","Lead Qualification"],["roi","ROI Calculator"],["pipeline","Sales Pipeline"]].map(([t,l]) => (
+            <div key={t} className={`tab ${tab===t?"on":""}`} onClick={() => setTab(t)}>{l}</div>
+          ))}
+        </div>
+
+        <div className="content">
+
+          {/* ── QUALIFY ── */}
+          {tab === "qualify" && (
+            <>
+              <div className="sec">Lead Score</div>
+              <div className="score-wrap">
+                <div>
+                  <div className="score-n">{score}</div>
+                  <div className="score-lbl">Score / 100</div>
+                </div>
+                <div style={{ flex:1, width:"100%" }}>
+                  <div className="score-status" style={{ color:status.color }}>{status.label}</div>
+                  <div style={{ fontSize:21, color:MUTED, marginTop:4, marginBottom:8 }}>{rC}/{req.length} required · {bC}/{bonus.length} bonus</div>
+                  <div className="bar-wrap"><div className="bar" style={{ width:`${score}%` }}/></div>
+                </div>
+              </div>
+
+              <div className="g2">
+                <div>
+                  <div className="sec">Required Criteria</div>
+                  <div className="card">
+                    {req.map(c => (
+                      <div key={c.id} className="chk" onClick={() => toggle(c.id)}>
+                        <div className={`chk-box ${checked[c.id]?"on":""}`}><Tick/></div>
+                        <span className={`chk-lbl ${checked[c.id]?"on":""}`}>{c.label}</span>
+                        <span className="bdg bdg-r" style={{ marginLeft:"auto", flexShrink:0 }}>REQ</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="sec">Web Form — Required Fields</div>
+                  <div className="card">
+                    {[
+                      { n:"01", label:"Interest",        desc:"Explicit declaration of interest in purchasing or partnering on an IceRebus machine." },
+                      { n:"02", label:"Budget",          desc:"Approximate budget or financing method. Assesses viability without hard commitment." },
+                      { n:"03", label:"Stage",           desc:"Research → Financing → Ready to purchase." },
+                      { n:"04", label:"Message (10+w)",  desc:"Free-text description. Filters low-effort leads and reveals intent quality." },
+                      { n:"05", label:"Location",        desc:"Address or area. No location = not qualified." },
+                      { n:"06", label:"Decision Maker?", desc:"Simple yes/no. Saves hours chasing the wrong contact." },
+                    ].map(f => (
+                      <div key={f.n} className="cri" style={{ paddingLeft:0 }}>
+                        <div className="cri-n">{f.n}</div>
+                        <div><div className="cri-lbl">{f.label}</div><div className="cri-dsc">{f.desc}</div></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="sec">Bonus Criteria</div>
+                  <div className="card">
+                    {bonus.map(c => (
+                      <div key={c.id} className="chk" onClick={() => toggle(c.id)}>
+                        <div className={`chk-box ${checked[c.id]?"on":""}`}><Tick/></div>
+                        <span className={`chk-lbl ${checked[c.id]?"on":""}`}>{c.label}</span>
+                        <span className="bdg bdg-b" style={{ marginLeft:"auto", flexShrink:0 }}>+</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="sec">Automatic Disqualifiers</div>
+                  <div className="card">
+                    {disqualifiers.map((d,i) => (
+                      <div key={i} className="cri">
+                        <div style={{ fontSize:26, color:DANGER, minWidth:24, opacity:0.7 }}>✕</div>
+                        <div style={{ fontSize:21, color:TEXT, flex:1 }}>{d}</div>
+                        <span className="bdg bdg-d" style={{ marginLeft:"auto", flexShrink:0 }}>STOP</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="sec">Lost Deal — Reason Tracker</div>
+                  <div className="card">
+                    <div style={{ fontSize:20, color:MUTED, marginBottom:12, lineHeight:1.6 }}>
+                      Log the reason before archiving a lost lead. Over time this reveals where the funnel breaks.
+                    </div>
+                    <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
+                      {lostReasons.map(r => (
+                        <button key={r} className={`lost-btn ${lostReason===r?"sel":""}`} onClick={() => setLost(lostReason===r?null:r)}>
+                          {r}
+                        </button>
+                      ))}
+                    </div>
+                    {lostReason && (
+                      <div style={{ marginTop:12, padding:"9px 13px", background:"rgba(192,57,43,0.05)", border:"1px solid rgba(192,57,43,0.18)", borderRadius:4, fontSize:20, color:MUTED }}>
+                        Logged: <strong style={{ color:DANGER }}>{lostReason}</strong> — record in CRM before archiving.
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* ── ROI ── */}
+          {tab === "roi" && (
+            <>
+              <div className="g2" style={{ marginBottom:0 }}>
+                <div>
+                  <div className="sec">Machine Investment</div>
+                  <div className="card">
+                    <label className="input-label">Machine purchase price (€)</label>
+                    <input type="number" className="num-input" value={machinePrice} onChange={e => setMP(Number(e.target.value))}/>
+                    <div style={{ fontSize:20, color:MUTED, marginTop:8 }}>Sets the payback period — the most powerful number in the pitch.</div>
+                  </div>
+                </div>
+                <div>
+                  <div className="sec">Operational Days / Year</div>
+                  <div className="card">
+                    <div className="slider-row">
+                      <input type="range" min={100} max={365} value={opDays} className="sli"
+                        style={{ background:`linear-gradient(to right,${ACCENT} ${opPct}%,${BORDER} ${opPct}%)` }}
+                        onChange={e => setOpDays(Number(e.target.value))}/>
+                      <div className="sli-val">{opDays}</div>
+                    </div>
+                    <div className="sli-lbl">
+                      {opDays >= 340 ? "Near full-year operation" :
+                       opDays >= 280 ? `${365-opDays} days off for maintenance & downtime` :
+                       opDays >= 200 ? `Conservative — ~${Math.round(opDays/30)} months active` :
+                       "Very conservative scenario"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sec">Seasonal Mix</div>
+              <div className="g2" style={{ marginBottom:18 }}>
+                <div className="season-box">
+                  <div className="season-title" style={{ color:ACCENT }}>≤ 20°C months · 450 kg/day</div>
+                  <div className="slider-row">
+                    <input type="range" min={0} max={12} value={warmMonths} className="sli"
+                      style={{ background:`linear-gradient(to right,${ACCENT} ${(warmMonths/12)*100}%,${BORDER} ${(warmMonths/12)*100}%)` }}
+                      onChange={e => { const v=Number(e.target.value); setWarm(v); if(v+hotMonths>12) setHot(12-v); }}/>
+                    <div className="sli-val">{warmMonths}</div>
+                  </div>
+                  <div className="sli-lbl">{warmMonths} months at normal temperature</div>
+                </div>
+                <div className="season-box">
+                  <div className="season-title" style={{ color:WARN }}>≥ 30°C months · 300 kg/day</div>
+                  <div className="slider-row">
+                    <input type="range" min={0} max={12} value={hotMonths} className="sli"
+                      style={{ background:`linear-gradient(to right,${WARN} ${(hotMonths/12)*100}%,${BORDER} ${(hotMonths/12)*100}%)` }}
+                      onChange={e => { const v=Number(e.target.value); setHot(v); if(v+warmMonths>12) setWarm(12-v); }}/>
+                    <div className="sli-val" style={{ color:WARN }}>{hotMonths}</div>
+                  </div>
+                  <div className="sli-lbl">{hotMonths} months at high temperature</div>
+                </div>
+              </div>
+
+              <div style={{ padding:"10px 14px", background:"rgba(0,168,224,0.04)", border:`1px solid ${BORDER}`, borderRadius:4, marginBottom:20, fontSize:20, color:MUTED }}>
+                Blended daily capacity: <strong style={{ color:TEXT }}>{scenarios[0].blended} kg/day</strong> · based on {warmMonths}m warm + {hotMonths}m hot
+                {warmMonths + hotMonths < 12 && <span style={{ color:WARN }}> · {12-warmMonths-hotMonths} transition months not modelled</span>}
+              </div>
+
+              {machinePrice > 0 && (
+                <>
+                  <div className="sec">Payback Period at 50% Capacity</div>
+                  <div className="payback-bar">
+                    <div>
+                      <div className="pb-big">{mid.paybackMo !== null ? `${mid.paybackMo} mo` : "—"}</div>
+                      <div className="pb-sub">Months to recover investment</div>
+                    </div>
+                    <div className="pb-div"/>
+                    <div>
+                      <div className="pb-big" style={{ color:ACCENT }}>€{mid.ownerMo.toLocaleString()}</div>
+                      <div className="pb-sub">Monthly net · 50% capacity</div>
+                    </div>
+                    <div className="pb-div"/>
+                    <div>
+                      <div className="pb-big" style={{ color:ACCENT }}>€{mid.ownerAnnual.toLocaleString()}</div>
+                      <div className="pb-sub">Annual net · {opDays} days</div>
+                    </div>
+                    <div className="pb-note">
+                      Lead with this number: <em style={{ color:TEXT }}>"At realistic usage, you recover your full investment in {mid.paybackMo} months."</em>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              <div className="sec">All Scenarios</div>
+              <div className="g3">
+                {scenarios.map((s,i) => (
+                  <div key={s.pct} className={`sc-card sc-${["low","med","hi"][i]}`}>
+                    <div className="sc-hdr">
+                      <div>
+                        <div className="sc-pct">{s.pct}%</div>
+                        <div className="sc-tag">{s.dispenses} dispenses / day</div>
+                      </div>
+                      {s.paybackMo && (
+                        <div style={{ textAlign:"right" }}>
+                          <div style={{ fontSize:18, color:MUTED, letterSpacing:1, textTransform:"uppercase", fontFamily:"'Barlow Condensed'" }}>Payback</div>
+                          <div style={{ fontFamily:"'Barlow Condensed'", fontSize:31, fontWeight:700, color:i===0?MUTED:i===1?ACCENT:ACCENT2 }}>{s.paybackMo} mo</div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="sc-body">
+                      <div className="mrow"><span className="mkey">Daily Revenue</span><span className="mval">€{s.daily}</span></div>
+                      <div className="mrow"><span className="mkey">Annual Gross</span><span className="mval">€{s.annual.toLocaleString()}</span></div>
+                      <div className="mrow"><span className="mkey">Location (20%)</span><span className="mval dim">−€{s.locAnnual.toLocaleString()}</span></div>
+                      <div className="mrow" style={{ paddingTop:8, marginTop:4, borderTop:`1px solid ${BORDER}`, borderBottom:"none" }}>
+                        <span className="mkey" style={{ color:ACCENT2 }}>Your Annual Net</span>
+                        <span className="mval hi">€{s.ownerAnnual.toLocaleString()}</span>
+                      </div>
+                      <div className="mrow">
+                        <span className="mkey" style={{ color:ACCENT2 }}>Monthly Average</span>
+                        <span className="mval hi">€{s.ownerMo.toLocaleString()}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="note">
+                <strong style={{ color:TEXT }}>Pitch flow:</strong> Enter the machine price → show payback period first → then reveal the 3 scenarios. Let the prospect set operational days and seasonal mix themselves — when they build the numbers, they own them. All figures: 3 kg per dispense at €3, 80/20 split, location covers water + electricity + rent.
+              </div>
+            </>
+          )}
+
+          {/* ── PIPELINE ── */}
+          {tab === "pipeline" && (
+            <>
+              <div className="g2">
+                <div>
+                  <div className="sec">Pipeline Flow</div>
+                  <div className="card">
+                    {[
+                      { dot:"dot-a", n:"1", title:"Web Form Submitted",        desc:"Lead fills form on icerebus.com. Captures: interest, budget, stage, 10-word message, location, and decision-maker status. Auto-confirmation sent." },
+                      { dot:"dot-b", n:"2", title:"Verification Call (24–48h)", desc:"Sales team confirms all fields verbally. Flag inconsistencies. Confirm decision-maker. Apply disqualifiers if needed." },
+                      { dot:"dot-c", n:"3", title:"Lead Scored & Classified",   desc:"7 required + 3 bonus criteria. Score 80+ = qualified lead. Stage assigned: Research / Financing / Ready." },
+                      { dot:"dot-b", n:"4", title:"ROI Pitch",                  desc:"Run the ROI calculator live. Enter machine price → lead with payback period. Let prospect tune operational days and seasonal mix." },
+                      { dot:"dot-c", n:"5", title:"Deal or Lost",               desc:"Location visit, financing support, or contract. If lost — log reason before archiving the lead." },
+                    ].map((s,i,a) => (
+                      <div key={i} className="pipe-step">
+                        {i < a.length-1 && <div className="pipe-line"/>}
+                        <div className={`dot ${s.dot}`}>{s.n}</div>
+                        <div><div className="step-title">{s.title}</div><div className="step-desc">{s.desc}</div></div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="sec">Lead Stage Definitions</div>
+                  {[
+                    { stage:"Research",  color:MUTED,   cadence:"Follow up in 2–4 weeks", desc:"Exploring the concept, no decision made. Send the ROI calculator link and let the numbers do the work. Don't rush — nurture." },
+                    { stage:"Financing", color:ACCENT,  cadence:"Weekly follow-up",        desc:"Interested, securing funds. High intent. Help with financing questions. Keep momentum — delays here kill deals." },
+                    { stage:"Ready",     color:ACCENT2, cadence:"Same-week action",        desc:"Has budget and location. Immediate priority. Book location visit and move to contract within days, not weeks." },
+                  ].map(s => (
+                    <div key={s.stage} className="card" style={{ borderColor:s.color+"50", borderTopWidth:3, marginBottom:10 }}>
+                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:6 }}>
+                        <div style={{ fontFamily:"'Barlow Condensed'", fontSize:31, fontWeight:900, color:s.color }}>{s.stage.toUpperCase()}</div>
+                        <div style={{ fontSize:18, color:s.color, opacity:0.75, letterSpacing:1, textTransform:"uppercase" }}>{s.cadence}</div>
+                      </div>
+                      <div style={{ fontSize:20, color:MUTED, lineHeight:1.7 }}>{s.desc}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <div className="sec">Objection Handling</div>
+                  {objections.map((o,i) => (
+                    <div key={i} className={`obj-card ${openObj===i?"open":""}`} onClick={() => setOpenObj(openObj===i?null:i)}>
+                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", gap:10 }}>
+                        <div className="obj-q">{o.q}</div>
+                        <div style={{ fontSize:21, color:MUTED, flexShrink:0 }}>{openObj===i?"▲":"▼"}</div>
+                      </div>
+                      {openObj===i && <div className="obj-a">{o.a}</div>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
+        </div>
+      </div>
+    </>
+  );
+}
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App/>);
+  </script>
+<script src="https://elfsightcdn.com/platform.js" async=""></script>
+</body>
+</html>
